@@ -1,67 +1,158 @@
 name-template: '$RESOLVED_VERSION'
 tag-template: '$RESOLVED_VERSION'
+
 categories:
-  - title: '❗ Breaking Changes:'
+  - title: 'alignment/seata-java'
     labels:
-      - '❗ Breaking Change'
-  - title: '🚀 New Features:'
+      - 'alignment/seata-java'
+  - title: 'bug'
     labels:
-      - '✏️ Feature'
-  - title: '🐛 Fixes:'
+      - 'bug'
+  - title: 'ci/cd'
     labels:
-      - '☢️ Bug'
-  - title: '📚 Documentation:'
+      - 'ci/cd'
+  - title: 'coding'
     labels:
-      - '📒 Documentation'
-  - title: '🧹 Updates:'
+      - 'coding'
+  - title: 'documentation'
     labels:
-      - '🧹 Updates'
-      - '🤖 Dependencies'
+      - 'documentation'
+  - title: 'enhancement'
+    labels:
+      - 'enhancement'
+  - title: 'good first issue'
+    labels:
+      - 'good first issue'
+  - title: 'integration'
+    labels:
+      - 'integration'
+  - title: 'milestone'
+    labels:
+      - 'milestone'
+  - title: 'module/at'
+    labels:
+      - 'module/at'
+  - title: 'module/rm'
+    labels:
+      - 'module/rm'
+  - title: 'module/saga'
+    labels:
+      - 'module/saga'
+  - title: 'module/tcc'
+    labels:
+      - 'module/tcc'
+  - title: 'module/tm'
+    labels:
+      - 'module/tm'
+  - title: 'module/xa'
+    labels:
+      - 'module/xa'
+  - title: 'optimise'
+    labels:
+      - 'optimise'
+  - title: 'protocol'
+    labels:
+      - 'protocol'
+  - title: 'question'
+    labels:
+      - 'question'
+  - title: 'refactor'
+    labels:
+      - 'refactor'
+  - title: 'remoting'
+    labels:
+      - 'remoting'
+  - title: 'rm'
+    labels:
+      - 'rm'
+  - title: 'task: help-wanted'
+    labels:
+      - 'task: help-wanted'
+  - title: 'tm'
+    labels:
+      - 'tm'
+  - title: 'v2.0.0'
+    labels:
+      - 'v2.0.0'
+
 change-template: '- $TITLE (#$NUMBER)'
 change-title-escapes: '\<*_&'
 exclude-contributors:
   - dependabot
   - dependabot[bot]
+
 version-resolver:
   major:
     labels:
-      - '❗ Breaking Change'
+      - 'enhancement'
+      - 'module/at'
   minor:
     labels:
-      - '✏️ Feature'
+      - 'enhancement'
+      - 'module/saga'
   patch:
     labels:
-      - '📒 Documentation'
-      - '☢️ Bug'
-      - '🤖 Dependencies'
-      - '🧹 Updates'
+      - 'bug'
+      - 'documentation'
+      - 'refactor'
   default: patch
+
 template: |
   $CHANGES
-  
-  Version tags:
-  - `https://github.com/$OWNER/$REPOSITORY/releases/tag/v$RESOLVED_VERSION`
-  
-  **📒 Documentation**: test_labeler
-  
+
   **Full Changelog**: https://github.com/$OWNER/$REPOSITORY/compare/$PREVIOUS_TAG...v$RESOLVED_VERSION
-  
-  Thanks to $CONTRIBUTORS for making this release possible.
+  **Contributors**: $CONTRIBUTORS
+
 autolabeler:
-  - label: '📒 Documentation'
+  - label: 'documentation'
     files:
       - '*.md'
+      - 'docs/**'
     title:
-      - '/(docs|doc:|\[doc\]|typos|comment|documentation)/i'
-  - label: '☢️ Bug'
+      - '/(docs?|typo|doc:|\[doc\]|comment)/i'
+
+  - label: 'bug'
     title:
-      - '/(fix|race|bug|missing|correct)/i'
-  - label: '🧹 Updates'
+      - '/(fix|bug|error|fail|correct|missing)/i'
+      - '/(race|deadlock)/i'
+
+  - label: 'enhancement'
     title:
-      - '/(improve|update|update|refactor|deprecated|remove|unused|test)/i'
-  - label: '🤖 Dependencies'
+      - '/(feat|feature|add|implement|create)/i'
+
+  - label: 'refactor'
     title:
-      - '/(bump|dependencies)/i'
-  - label: '✏️ Feature'
+      - '/(refactor|cleanup|deprecate|remove|unused)/i'
+
+  - label: 'ci/cd'
+    files:
+      - '.github/workflows/**'
     title:
-      - '/(feature|feat|create|implement|add)/i'
+      - '/(ci|cd|workflow|pipeline)/i'
+
+  - label: 'coding'
+    title:
+      - '/(bump|upgrade|dependencies?)/i'
+    files:
+      - 'go.mod'
+      - 'go.sum'
+
+  - label: 'question'
+    title:
+      - '/(question|ask|inquiry)/i'
+
+  - label: 'good first issue'
+    title:
+      - '/(good first issue|easy|beginner|help wanted)/i'
+
+  - label: 'module/saga'
+    title:
+      - '/(saga)/i'
+
+  - label: 'module/at'
+    title:
+      - '/(at)/i'
+    
+  - label: 'module/xa'
+    title:
+    - '/(xa)/i'
