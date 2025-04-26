@@ -42,7 +42,7 @@ template: |
   Version tags:
   - `https://github.com/$OWNER/$REPOSITORY/releases/tag/v$RESOLVED_VERSION`
   
-  **📒 Documentation**: dubbo-go
+  **📒 Documentation**: test_labeler
   
   **Full Changelog**: https://github.com/$OWNER/$REPOSITORY/compare/$PREVIOUS_TAG...v$RESOLVED_VERSION
   
